@@ -27,7 +27,7 @@ function gateKeeper(req, res, next){
   // and the you shall not pass message
   const password = req.headers.password || '';
 
-  if(password.toLowerCase() === null || 0 ) {
+  if(!password.toLowerCase()) {
     res.status(400).json({ error: 'please provide a password' })
   } else if(password.toLowerCase() === 'mellon') {
     next();
